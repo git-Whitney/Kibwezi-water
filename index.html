@@ -1,0 +1,178 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Kibwezi Water Website</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+          <img src="logo.jpg" alt="Logo">
+          <span>KSW</span>
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+          </div>
+          
+        
+      
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home"><i class="fa-solid fa-house"></i>HOME</a></li>
+          <li><a href="#about"><i class="fa-solid fa-circle-info"></i>ABOUT</a></li>
+          <li><a href="#services"><i class="fa-solid fa-clipboard-list"></i>SERVICES</a></li>
+          <li><a href="#contact"><i class="fa-solid fa-phone"></i>CONTACT</a></li>
+          <li><a href="#news"><i class="fa-solid fa-newspaper"></i>NEWS</a></li>
+        </ul>
+      
+        <div class="search-container">
+          <form action="/search" method="GET">
+            <input type="text" placeholder="Search..." id="search-box">
+            <button type="submit" class="search-button">
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
+        </div>
+      </nav>
+      
+  <div class="body-img">
+    <img src="background.jpeg" alt="image 1">
+    <div class="overlay-text">
+      <h2>KIBWEZI SHALLOW WATERS</h2>
+      <h3>Transforming your dreams to reality</h3>
+      <ul>
+        <li>Underground water allocation</li>
+        <li>Excavating shallow wells</li>
+        <li>Solar panel & pump installation</li>
+      </ul>
+      <button><i class="fa-solid fa-phone"></i><a href="tel:+254712763189">CALL US</a></button>
+    </div>
+  </div>
+
+  <div class="slides" id="services">
+    <h2>Our Services</h2>
+    <div class="card-container">
+      <div class="card">
+        <img src="pic3.jpg" alt="Shallow well excavation">
+        <h3>Shallow well excavation</h3>
+      </div>
+      <div class="card">
+        <img src="pic2.jpg" alt="Fully equipped machinery">
+        <h3>Fully equipped machinery</h3>
+      </div>
+      <div class="card">
+        <img src="pic1.jpg" alt="Underground survey">
+        <h3>Underground water survey</h3>
+      </div>
+    </div>
+    <ul>
+      <li>Underground water allocation</li>
+      <li>Excavation of shallow wells</li>
+      <li>Installation of solar panel & pumps</li>
+    </ul>
+  </div>
+
+  <section class="team">
+    <h2>Our Team</h2>
+    <div class="slider-container">
+      <div class="arrow left" onclick="prevSlide()">&#10094;</div>
+      <div class="arrow right" onclick="nextSlide()">&#10095;</div>
+      <div class="slido" id="slido">
+        <div class="slide">
+          <img src="memb2.jpg" alt="Team Member 1" />
+          <h3>Jane Doe</h3>
+          <p>Hydrologist with 10+ years of experience.</p>
+        </div>
+        <div class="slide">
+          <img src="pic4.jpg" alt="Team Member 2" />
+          <h3>John Smith</h3>
+          <p>Engineer specializing in purification.</p>
+        </div>
+        <div class="slide">
+          <img src="memb3.jpg" alt="Team Member 3" />
+          <h3>Emily Davis</h3>
+          <p>Expert in sustainable water management.</p>
+        </div>
+      </div>
+    </div>
+    <script>
+      const slido = document.getElementById('slido');
+      const totalSlido = slido.children.length;
+      let index = 0;
+
+      function showSlide(i) {
+        index = (i + totalSlido) % totalSlido;
+        slido.style.transform = `translateX(-${index * 100}%)`;
+      }
+
+      function nextSlide() {
+        showSlide(index + 1);
+      }
+      function prevSlide() {
+        showSlide(index - 1);
+      }
+    </script>
+  </section>
+
+  <section class="new-section">
+    <div class="content">
+      <h2>Our Mission</h2>
+      <p>We aim to transform lives by providing sustainable water solutions through innovation and integrity.</p>
+      <a href="#services" class="btn">Learn More</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-column" id="about">
+        <h3>About KibweziWaters</h3>
+        <p>Leading the way in sustainable water mining. We deliver clean water through eco-conscious methods.</p>
+      </div>
+      <div class="footer-column" id="contact">
+        <h3>Contact Us</h3>
+        <ul>
+          <li><i class="fas fa-phone"></i> +254 712763189</li>
+          <li><i class="fas fa-envelope"></i> contact@kibweziwaters.com</li>
+          <li><i class="fas fa-map-marker-alt"></i> 123 Nakuru, Rift Valley</li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-column" id="news">
+        <h3>Stay Updated</h3>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your email" required />
+          <button type="submit">Subscribe</button>
+        </form>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 KibweziShallowWaters. All rights reserved.</p>
+    </div>
+  </footer>
+  <script>
+    function toggleMenu() {
+      const navLinks = document.querySelector('.nav-links');
+      navLinks.classList.toggle('show');
+    }
+  </script>
+  
+  
+</body>
+</html>
