@@ -140,6 +140,14 @@
   </section>
   </div>
 
+  <form id="feedback-form">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" placeholder="Your Message" required></textarea>
+    <button type="submit">Send</button>
+  </form>
+  
+  <p id="response-message"></p>
   
   <section class="new-section">
     <div class="content">
@@ -243,5 +251,31 @@ function topFunction() {
 }
 
  </script>
+ <script>
+    const form = document.getElementById("feedback-form");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const data = {
+        name: form.name.value,
+        email: form.email.value,
+        message: form.message.value,
+      };
+  
+      fetch("https://script.google.com/macros/s/AKfycbxdWXRtTJcwrhXShRAO4UIt6U92teSDaO3vOmJAZvEux9DVthQ_OJxTmPwWdPFPvYV2YQ/exec", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" },
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          document.getElementById("response-message").textContent = "Message sent!";
+          form.reset();
+        })
+        .catch(() => {
+          document.getElementById("response-message").textContent = "Error sending message.";
+        });
+    });
+  </script>
+  
 </body>
 </html>
